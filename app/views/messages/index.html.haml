@@ -1,0 +1,38 @@
+%header
+  グループを作成しました
+
+.contents
+  .side-header
+    .side-header__name
+      name
+      .side-header__setting
+        =link_to "#", class: "contents__btn--icon" do
+          = icon 'fas', 'edit'
+          
+        =link_to "#", class: "contents__btn--icon" do
+          = icon 'fas', 'cog'
+  .side-bar__groups
+    %div
+      = render "groups"
+      
+
+  .content
+    .content__header
+      .content__fix
+        グループタイトル
+      =link_to "#", class: "content__edit--link" do
+        Edit
+      .content__member
+        Member：ゲスト１s、ゲスト２、ゲスト３
+    .content__talk
+      
+      = render "posts"
+
+    .content__form
+      .form__wrap
+        .form__input
+          %input{name: "text" , placeholder: "type a message", class: "form__input text"}
+        %label.upload-labelt
+          = icon 'far', 'image'
+          %input{type:"file", name:"image"}
+        %input{type:"submit", value:"Send", class:"content__formt send"}
