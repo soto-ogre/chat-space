@@ -29,13 +29,20 @@
 
 
 .side-bar {
-  
-  &__groups > div {
-    padding:100px 0;
-    overflow-y:auto;
-    height: 100vh;
+
+  &__groups{
+
+  height: 100vh;
     width:300px;
   background-color: #2f3e51;
+  overflow-y:auto;
+  }
+  
+  &__groups {
+    padding:100px 0;
+    
+    
+  
   }
 
 

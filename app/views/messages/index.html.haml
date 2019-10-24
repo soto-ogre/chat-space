@@ -1,19 +1,6 @@
-%header
-  グループを作成しました
 
 .contents
-  .side-header
-    .side-header__name
-      name
-      .side-header__setting
-        =link_to "#", class: "contents__btn--icon" do
-          = icon 'fas', 'edit'
-          
-        =link_to "#", class: "contents__btn--icon" do
-          = icon 'fas', 'cog'
-  .side-bar__groups
-    %div
-      = render "groups"
+  = render "/layouts/side_bar"
       
 
   .content
