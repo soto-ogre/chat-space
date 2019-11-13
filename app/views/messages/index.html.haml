@@ -7,7 +7,7 @@
     .content__header
       .content__fix
         = @group.name
-      =link_to "#", class: "content__edit--link" do
+      =link_to edit_group_path(@group.id) , class: "content__edit--link" do
         Edit
       .content__member
         - @group.users.each do |group|
