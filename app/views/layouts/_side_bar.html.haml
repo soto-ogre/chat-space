@@ -1,20 +1,21 @@
-.side-header
-  .side-header__name
-    = current_user.name
-    .side-header__setting
-      =link_to new_group_path, class: "contents__btn--icon" do
-        = icon 'fas', 'edit'
-        
-      =link_to edit_user_path(current_user), class: "contents__btn--icon" do
-        = icon 'fas', 'cog'
-.side-bar__groups
-  
-  .side-bar__group
-    - @groups.each do |group|
-      =link_to "#", class: "side-bar__group--name" do
-        = group.name
-        .side-bar__group--message
-          こんにちは！
+.side-bar
+  .side-header
+    .side-header__name
+      = current_user.name
+      .side-header__setting
+        =link_to new_group_path, class: "contents__btn--icon" do
+          = icon 'fas', 'edit'
+          
+        =link_to edit_user_path(current_user), class: "contents__btn--icon" do
+          = icon 'fas', 'cog'
+  .side-bar__groups
+    
+    .side-bar__group
+      - current_user.groups.each do |group|
+        = link_to group_messages_path(group), class: "side-bar__group--name" do
+          = group.name
+          .side-bar__group--message
+            = group.show_last_message
 
 
 

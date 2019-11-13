@@ -6,20 +6,32 @@
   .content
     .content__header
       .content__fix
-        グループタイトル
+        グループタイトルあ
       =link_to "#", class: "content__edit--link" do
         Edit
       .content__member
         Member：ゲスト１s、ゲスト２、ゲスト３
     .content__talk
       
-      = render "posts"
-
+      -# = render "posts"
     .content__form
       .form__wrap
         .form__input
-          %input{name: "text" , placeholder: "type a message", class: "form__input text"}
-        %label.upload-labelt
-          = icon 'far', 'image'
-          %input{type:"file", name:"image"}
-        %input{type:"submit", value:"Send", class:"content__formt send"}
+          = form_for [@group, @message] do |f|
+            = f.text_field :content, class: 'form__input text', placeholder: 'type a message'
+            = f.label :image, class: 'upload-labelt' do
+              = icon 'far', 'image'
+              = f.file_field :image
+            = f.submit 'Send', class: 'content__formt send'
+
+    
+
+    -# .content__form
+    
+    -#   .form__wrap
+    -#     .form__input
+    -#       %input{name: "text" , placeholder: "type a message", class: "form__input text"}
+    -#     %label.upload-labelt
+    -#       = icon 'far', 'image'
+    -#       %input{type:"file", name:"image"}
+    -#     %input{type:"submit", value:"Send", class:"content__formt send"}
