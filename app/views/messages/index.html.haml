@@ -6,14 +6,16 @@
   .content
     .content__header
       .content__fix
-        グループタイトルあ
+        = @group.name
       =link_to "#", class: "content__edit--link" do
         Edit
       .content__member
-        Member：ゲスト１s、ゲスト２、ゲスト３
+        - @group.users.each do |group|
+          Member:
+          = group.name
     .content__talk
       
-      -# = render "posts"
+      = render @messages
     .content__form
       .form__wrap
         .form__input
