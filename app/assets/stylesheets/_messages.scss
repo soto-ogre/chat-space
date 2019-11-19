@@ -1,0 +1,148 @@
+@import "variable";
+@mixin view-width {
+  width:calc(100vw - 300px);
+}
+
+header {
+  background-color: $Blue;
+  width: 100%;
+  text-align: center;
+  color: #FFF;
+  
+}
+
+.contents{
+  display: flex;
+  position: relative;
+  margin:0 auto;
+  width: 100vw;
+}
+
+
+
+.content {
+  background-color: #fafafa;
+  color: #333;
+  position:relative;
+
+    width:100vw;
+    margin:0 auto;
+  
+  &__header {
+    position:fixed;
+    left: 300px;
+    background-color: #FFF;
+    border-bottom: solid 1px #eeeeee;
+    padding:35px 40px 0 40px;
+    height: 100px;
+    @include view-width;
+    font-size: 20px;
+  }
+
+  &__member {
+    font-size: 12px;
+    color: #999;
+    margin-top: 15px;
+  }
+
+
+  &__talk{
+    overflow-y:auto;
+    height: 100vh;
+    @include view-width;
+    padding:146px 40px 150px 40px;
+  }
+
+  &__post {
+    margin-bottom:40px;
+    color: $MainFontColor ;
+  }
+  &__data {
+    
+    padding-bottom:10px;
+    display: flex;
+  }
+  &__user {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  &__time {
+    margin-left:10px;
+    font-size: 12px;
+    color: #999;
+  }
+  &__message {
+    font-size: 14px;
+    color: $MainFontColor;
+    
+  }
+
+  &__form {
+    position: fixed;
+    bottom: 0;
+    background-color: #ddd;
+    @include view-width;
+    padding: 20px 40px;
+  }
+
+}
+a.content__edit--link {
+  color:$Blue;
+  display: block;
+  position: absolute;
+  z-index: 5;
+  top: 28px;
+  right:40px;
+  padding:0 20px;
+  line-height: 40px;  
+  border:solid 1px $Blue;
+  font-size: 16px;
+  
+}
+
+label input {
+  display:none;
+}
+
+.form{
+  display: flex;
+  &__wrap {
+    width: calc(100% - 115px);
+    position: relative;
+    
+  }
+
+  &__input {
+    width: 100%;
+    
+  }
+
+}
+
+
+.text {
+  height:50px;
+  border: none;
+  padding: 0 40px 0 10px;
+}
+
+.upload-labelt {
+  position: absolute;
+  right: 10px;
+  top:2px;
+  font-size: 1.7em;
+}
+
+
+.send {
+  background-color:$Blue;
+  color: #FFF;
+  padding: 10px 30px;
+  height: 50px;
+  border: none;
+  position: absolute;
+  right: -115px;
+  top: 0;
+}
+
+

@@ -1,0 +1,39 @@
+
+.contents
+  = render "/layouts/side_bar"
+      
+
+  .content
+    .content__header
+      .content__fix
+        = @group.name
+      =link_to edit_group_path(@group.id) , class: "content__edit--link" do
+        Edit
+      .content__member
+        - @group.users.each do |group|
+          Member:
+          = group.name
+    .content__talk
+      
+      = render @messages
+    .content__form
+      .form__wrap
+        .form__input
+          = form_for [@group, @message] do |f|
+            = f.text_field :content, class: 'form__input text', placeholder: 'type a message'
+            = f.label :image, class: 'upload-labelt' do
+              = icon 'far', 'image'
+              = f.file_field :image
+            = f.submit 'Send', class: 'content__formt send'
+
+    
+
+    -# .contt.string :nameent__form
+    
+    -#   .form__wrap
+    -#     .form__input
+    -#       %input{name: "text" , placeholder: "type a message", class: "form__input text"}
+    -#     %label.upload-labelt
+    -#       = icon 'far', 'image'
+    -#       %input{type:"file", name:"image"}
+    -#     %input{type:"submit", value:"Send", class:"content__formt send"}
