@@ -1,20 +1,20 @@
 $(function(){
   function buildHTML(message){
-      var img = message.image.url ? `<img src= ${ message.image.url }>` : "";
+      var img = message.image.url ? `<a href="${message.image.url}" target="_blank"><img src= ${ message.image.url } width="300px"></a>`
+                                    : "";
       var html = `<div class="content__post">
-                  <div class="content__data">
-                  <div class="content__user">
-                  ${message.name}
-                  </div>
-                  <div class="content__time">
-                  ${message.created_at}
-                  </div>
-                  </div>
-                  <p class="content__message">
-                  </p><p>
-                  ${message.content}
-                  </p>
-                  ${img}
+                    <div class="content__data">
+                      <div class="content__user">
+                      ${message.name}
+                      </div>
+                      <div class="content__time">
+                      ${message.created_at}
+                      </div>
+                    </div>
+                    <p class="content__message">
+                    ${message.content}
+                    </p>
+                    ${img}
                   </div>`
     return html;
 }

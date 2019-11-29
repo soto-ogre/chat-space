@@ -8,4 +8,4 @@
     - if message.content.present?
       %p
         = message.content
-    = image_tag message.image.url if message.image.present?
+    = link_to image_tag(src= message.image.url, style: "max-width:300px;"),message.image.url, target: :_blank if message.image.present?
