@@ -17,7 +17,7 @@ $(function(){
                     ${img}
                   </div>`
     return html;
-}
+  }
 
 
 

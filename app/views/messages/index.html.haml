@@ -10,8 +10,8 @@
       =link_to edit_group_path(@group.id) , class: "content__edit--link" do
         Edit
       .content__member
+        Member:
         - @group.users.each do |group|
-          Member:
           = group.name
     .content__talk
       
