@@ -1,11 +1,9 @@
 $(function(){
-  last_message_id = $('.content__message:last').data('message-id');
-  console.log(last_message_id);
-
+  
   function buildHTML(message){
       var img = message.image ? `<a href="${message.image}" target="_blank"><img src= ${ message.image } width="300px"></a>`
                                     : "";
-      var html = `<div class="content__post" data-messege_id=`+ message.id +`>
+      var html = `<div class="content__post" data-messege_id="${message.id}">
                     <div class="content__data">
                       <div class="content__user">
                       ${message.name}
@@ -20,7 +18,7 @@ $(function(){
                     ${img}
                   </div>`
     return html;
-  }
+  };
 
 
 
@@ -50,30 +48,25 @@ $(function(){
   });
 
 
-    var reloadMessages = function() {
-      if (window.location.href.match(/\/groups\/\d+\/messages/)){
-      var href = 'api/messages#index {:format=>"json"}'   
-      last_message_id = $('.content__message:last').data('message-id');
-      
-      
+  var reloadMessages = function() {
+    if (window.location.href.match(/\/groups\/\d+\/messages/)){
+      last_message_id = $('.content__post:last').data('message-id');
       $.ajax({
-        url: href,
-        type: 'get',
+        url: "api/messages",
+        type: 'GET',
         dataType: 'json',
-        data: {id: last_message_id}
+        data: {last_id: last_message_id},
       })
-      
-      .done(function(messages) {
+      .done(function (messages) {
         var insertHTML = '';
-        $.each(messages, function(i, message) {
-          insertHTML += buildHTML(message)
-        });
+        $.each(messages, function (i, message) {
+          insertHTML += buildHTML(message);
         $('.content__talk').append(insertHTML);
-        $('.content__talk').animate({ scrollTop: $('.content__talk')[0].scrollHeight});
-        
+        $('.content__talk').animate({ scrollTop: $('.content__talk')[0].scrollHeight}, 'fast');
+        });
       })
       .fail(function() {
-        alert("自動更新に失敗しました")
+        alert('自動更新に失敗しました');
       });
     };
   };
