@@ -1,11 +1,10 @@
-.content__post
+.content__post{data: {message_id: message.id}}
   .content__data
     .content__user
       = message.user.name
     .content__time
       = message.created_at.strftime("%Y/%m/%d %H:%M")
-  %p.content__message{data: {message_id: message.id}}
+  %p.content__message
     - if message.content.present?
-      %p
-        = message.content
-    = link_to image_tag(src= message.image.url, style: "max-width:300px;"),message.image.url, target: :_blank if message.image.present?
+      = message.content
+  = link_to image_tag(src= message.image.url, style: "max-width:300px;"),message.image.url, target: :_blank if message.image.present?
