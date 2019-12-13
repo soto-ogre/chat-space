@@ -1,7 +1,5 @@
-
 .contents
   = render "/layouts/side_bar"
-      
 
   .content
     .content__header
@@ -25,15 +23,3 @@
               = icon 'far', 'image'
               = f.file_field :image
             = f.submit 'Send', class: 'content__formt send js-submit'
-
-    
-
-    -# .contt.string :nameent__form
-    
-    -#   .form__wrap
-    -#     .form__input
-    -#       %input{name: "text" , placeholder: "type a message", class: "form__input text"}
-    -#     %label.upload-labelt
-    -#       = icon 'far', 'image'
-    -#       %input{type:"file", name:"image"}
-    -#     %input{type:"submit", value:"Send", class:"content__formt send"}
