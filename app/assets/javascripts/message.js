@@ -1,9 +1,9 @@
-$(function(){
+$(document).on('turbolinks:load',function(){
   
   function buildHTML(message){
       var img = message.image ? `<a href="${message.image}" target="_blank"><img src= ${ message.image } width="300px"></a>`
                                     : "";
-      var html = `<div class="content__post" data-messege_id="${message.id}">
+      var html = `<div class="content__post" data-messege-id="${message.id}">
                     <div class="content__data">
                       <div class="content__user">
                       ${message.name}
@@ -17,6 +17,7 @@ $(function(){
                     </p>
                     ${img}
                   </div>`
+                  console.log(html)
     return html;
   };
 
@@ -51,6 +52,7 @@ $(function(){
   var reloadMessages = function() {
     if (window.location.href.match(/\/groups\/\d+\/messages/)){
       last_message_id = $('.content__post:last').data('message-id');
+      console.log(last_message_id)
       $.ajax({
         url: "api/messages",
         type: 'GET',
