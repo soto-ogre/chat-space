@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load',function(){
+$(function(){
   
   function buildHTML(message){
       var img = message.image ? `<a href="${message.image}" target="_blank"><img src= ${ message.image } width="300px"></a>`
@@ -17,7 +17,6 @@ $(document).on('turbolinks:load',function(){
                     </p>
                     ${img}
                   </div>`
-                  console.log(html)
     return html;
   };
 
@@ -52,7 +51,6 @@ $(document).on('turbolinks:load',function(){
   var reloadMessages = function() {
     if (window.location.href.match(/\/groups\/\d+\/messages/)){
       last_message_id = $('.content__post:last').data('message-id');
-      console.log(last_message_id)
       $.ajax({
         url: "api/messages",
         type: 'GET',
