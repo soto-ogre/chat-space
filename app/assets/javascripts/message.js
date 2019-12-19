@@ -3,7 +3,7 @@ $(document).on('turbolinks:load',function(){
   function buildHTML(message){
       var img = message.image ? `<a href="${message.image}" target="_blank"><img src= ${ message.image } width="300px"></a>`
                                     : "";
-      var html = `<div class="content__post" data-messege-id="${message.id}">
+      var html = `<div class="content__post" data-message-id="${message.id}">
                     <div class="content__data">
                       <div class="content__user">
                       ${message.name}
